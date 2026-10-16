@@ -1,0 +1,38 @@
+/* Paleta del spec (sec. 7). Tinta y Tinta profunda se unifican (D10): eran casi idénticos.
+   Los pares de color usados se verifican con scripts/check-contrast.mjs. */
+:root {
+  --cream: #faf5ec;
+  --paper: #f2eadb;
+  --ink: #1c2430;
+  --ink-soft: #4a5565;
+  --terracotta: #b84a24;
+  --terracotta-deep: #983a18;
+  --accent-text: #a8431f; /* terracota para texto pequeño: cumple AA también sobre Papel */
+  --amber: #e3a33b;
+  --ink-deep: var(--ink);
+  --cream-light: #f4ebdd;
+  --on-dark-soft: #cfc5b4;
+  --sage: #6f8f72;
+  --sand: #e2d6c1;
+
+  --font-serif: 'Fraunces Variable', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'DM Sans Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+  --space-7: 96px;
+  --space-8: 128px;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --container: 1120px;
+  --measure: 68ch;
+  --header-h: 72px;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}

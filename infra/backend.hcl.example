@@ -1,0 +1,6 @@
+# Copia a backend.hcl (ignorado por git) y ajusta. Ver docs/runbook.md, paso 1.
+bucket       = "CAMBIA-ESTO-portfolio-tfstate"
+key          = "portfolio/terraform.tfstate"
+region       = "us-east-1"
+use_lockfile = true
+encrypt      = true

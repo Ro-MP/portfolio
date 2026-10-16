@@ -1,0 +1,52 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+    paths: ['web/**', '.github/workflows/deploy.yml']
+  workflow_dispatch:
+
+# Variables del repositorio (Settings > Secrets and variables > Actions > Variables):
+#   AWS_DEPLOY_ROLE_ARN, AWS_REGION, S3_BUCKET, CF_DISTRIBUTION_ID  (salen de `terraform output`)
+#   RELEASE = 1   → build de release: falla si quedan PENDIENTES y publica sin noindex en la página
+#                   (la cabecera X-Robots-Tag la controla Terraform con allow_index)
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - name: Build de staging
+        if: vars.RELEASE != '1'
+        run: npm run build:staging
+      - name: Build de release
+        if: vars.RELEASE == '1'
+        run: npm run build:release
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+      - name: Subir a S3 e invalidar CloudFront
+        run: ./scripts/deploy.sh
+        env:
+          S3_BUCKET: ${{ vars.S3_BUCKET }}
+          CF_DISTRIBUTION_ID: ${{ vars.CF_DISTRIBUTION_ID }}

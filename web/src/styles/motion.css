@@ -1,0 +1,54 @@
+/* Movimiento (nivel moderado). Todo se desactiva con prefers-reduced-motion. */
+
+/* Reveal al scroll: solo se oculta si hay JS y el usuario no pidió menos movimiento. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .reveal:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .reveal {
+    transition:
+      opacity 0.55s var(--ease),
+      transform 0.55s var(--ease);
+    transition-delay: calc(var(--reveal-delay, 0) * 80ms);
+  }
+}
+
+/* Entrada del Hero: solo CSS, para no depender de JS en el LCP. */
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 0.7s var(--ease) both;
+    animation-delay: calc(var(--i, 0) * 110ms);
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Parallax muy leve en la foto del Hero (scroll-driven, sin JS). */
+  @supports (animation-timeline: scroll()) {
+    .parallax {
+      animation: parallax linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 600px;
+    }
+    @keyframes parallax {
+      to {
+        transform: translateY(24px);
+      }
+    }
+  }
+}
+
+/* Dibujo de diagramas SVG */
+@media (prefers-reduced-motion: no-preference) {
+  .svg-draw .draw {
+    transition: stroke-dashoffset 1.4s var(--ease);
+  }
+}

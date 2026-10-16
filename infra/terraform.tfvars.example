@@ -1,0 +1,6 @@
+# Copia a terraform.tfvars (ignorado por git).
+# domain_name           = "tudominio.com"   # [PENDIENTE]
+# certificate_validated = false             # true después de crear el CNAME de validación en Hostinger
+# github_repo           = "owner/repo"      # [PENDIENTE]
+# budget_email          = "tu@correo.com"
+# allow_index           = false             # true solo cuando apruebes publicar sin noindex
