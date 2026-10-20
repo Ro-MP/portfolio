@@ -30,10 +30,17 @@ const SKIP_KEYS = new Set(['ratio', 'href', 'email', 'src', 'poster', 'lang', 'o
 const problems = [];
 const { en, es } = await loadContents();
 
+// Un SVG en línea es marcado: se audita solo su texto visible (sin la geometría ni los números de paso 1–9).
+const svgText = (svg) =>
+  [...svg.matchAll(/>([^<]+)</g)]
+    .map((m) => m[1].trim())
+    .filter((t) => t && !/^\d$/.test(t))
+    .join(' ');
+
 function strings(content) {
   const out = [];
   walk(content, (path, value, _p, key) => {
-    if (typeof value === 'string' && !SKIP_KEYS.has(key)) out.push({ path, text: value });
+    if (typeof value === 'string' && !SKIP_KEYS.has(key)) out.push({ path, text: key === 'svg' ? svgText(value) : value });
   });
   return out;
 }

@@ -2,9 +2,9 @@
 
 > Generado por `npm run pending`. No lo edites a mano.
 > Cada ruta es de `src/app/content/en.ts`; el mismo cambio va en `es.ts`.
-> Total: **67** (15 medios, 3 enlaces/archivos, 46 textos, 3 de configuración).
+> Total: **66** (14 medios, 3 enlaces/archivos, 46 textos, 3 de configuración).
 
-## Medios: fotos, videos y diagramas (15)
+## Medios: fotos, videos y diagramas (14)
 
 - [ ] `hero.photo` — Retrato profesional, vertical 4:5, tratamiento cálido
 - [ ] `cases.demand-forecasting.cover` — Loop mudo de 10–15 s del frontend (histórico + pronóstico) con datos sintéticos, y su imagen de portada
@@ -14,7 +14,6 @@
 - [ ] `cases.wms.architecture.media` — Diagrama de arquitectura del WMS (app, API, SAP, dispositivos Zebra)
 - [ ] `cases.wms.demo.media` — Demo o capturas del WMS con datos sintéticos y marco de dispositivo discreto
 - [ ] `cases.tms.cover` — Loop mudo de 10–15 s de una entrega (firma y foto) con datos sintéticos, y su portada
-- [ ] `cases.tms.architecture.media` — Diagrama de arquitectura del TMS (app, sincronización offline, backend)
 - [ ] `cases.tms.demo.media` — Demo o capturas del TMS con datos sintéticos
 - [ ] `cases.automations.cover` — Animación del diagrama orquestador / workers / callback (reemplaza al video en este caso)
 - [ ] `cases.automations.architecture.media` — Diagrama del orquestador, workers paralelos y callback

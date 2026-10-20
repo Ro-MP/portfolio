@@ -18,7 +18,7 @@ const KIND_LABEL: Record<Media['kind'], string> = {
   imports: [NgOptimizedImage, LoopVideo, Pending, SvgDraw],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="frame" [style.aspect-ratio]="media().ratio">
+    <div class="frame" [class.frame--diagram]="svgHtml()" [style.aspect-ratio]="media().ratio">
       @if (hasAsset()) {
         @switch (media().kind) {
           @case ('video') {
@@ -38,7 +38,14 @@ const KIND_LABEL: Record<Media['kind'], string> = {
           }
           @case ('diagram') {
             @if (svgHtml(); as html) {
-              <div class="diagram" appSvgDraw role="img" [attr.aria-label]="media().alt" [innerHTML]="html"></div>
+              <div
+                class="diagram"
+                appSvgDraw
+                role="img"
+                tabindex="0"
+                [attr.aria-label]="media().alt"
+                [innerHTML]="html"
+              ></div>
             } @else {
               <img [ngSrc]="media().src!" fill [alt]="media().alt" />
             }
@@ -84,6 +91,26 @@ const KIND_LABEL: Record<Media['kind'], string> = {
     .diagram :is(svg) {
       width: 100%;
       height: 100%;
+    }
+    /* En pantallas angostas el texto del diagrama quedaría ilegible: se fija un ancho mínimo y se desplaza en horizontal. */
+    @media (max-width: 719px) {
+      .frame--diagram {
+        aspect-ratio: auto !important; /* gana al estilo en línea de la proporción */
+        contain: inline-size; /* el ancho del SVG no debe ensanchar las rejillas que lo contienen */
+      }
+      .frame--diagram .diagram {
+        display: block;
+        place-items: start; /* centrado "unsafe": el borde izquierdo quedaría fuera del área desplazable */
+        height: auto;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+      }
+      /* El SVG entra por innerHTML y no lleva el atributo de encapsulación: por eso ::ng-deep. */
+      .frame--diagram .diagram ::ng-deep svg {
+        width: 720px;
+        max-width: none;
+        height: auto;
+      }
     }
     .placeholder {
       position: absolute;

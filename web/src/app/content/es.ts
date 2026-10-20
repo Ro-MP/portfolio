@@ -1,3 +1,4 @@
+import { tmsDiagram, tmsDiagramAlt } from './diagrams/tms.ts';
 import type { SiteContent } from './types';
 
 /**
@@ -287,8 +288,8 @@ export const es: SiteContent = {
         media: {
           kind: 'diagram',
           ratio: '16 / 9',
-          alt: 'Diagrama de arquitectura del TMS',
-          pending: 'Diagrama de arquitectura del TMS (app, sincronización offline, backend)',
+          alt: tmsDiagramAlt('es'),
+          svg: tmsDiagram('es'),
         },
       },
       results: [
