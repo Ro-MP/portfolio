@@ -9,3 +9,4 @@ dist/
 *.tfvars
 !*.tfvars.example
 .env
+ElevenLabsDemo/
