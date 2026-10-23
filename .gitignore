@@ -10,3 +10,4 @@ dist/
 !*.tfvars.example
 .env
 ElevenLabsDemo/
+backend.hcl
