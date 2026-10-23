@@ -6,6 +6,18 @@ resource "aws_budgets_budget" "monthly" {
   limit_unit   = "USD"
   time_unit    = "MONTHLY"
 
+  # Solo el gasto de este proyecto (tag App). Sin filtro mide toda la cuenta; el filtro exige que el tag
+  # ya esté activo como cost allocation tag, por eso depende de activate_cost_tags (ver cost.tf).
+  dynamic "cost_filter" {
+    for_each = var.activate_cost_tags ? [1] : []
+    content {
+      name   = "TagKeyValue"
+      values = [format("user:App$%s", var.project)]
+    }
+  }
+
+  depends_on = [aws_ce_cost_allocation_tag.app]
+
   notification {
     comparison_operator        = "GREATER_THAN"
     threshold                  = 80

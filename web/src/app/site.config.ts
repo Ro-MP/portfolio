@@ -3,4 +3,4 @@
  * Mientras esté vacía no se emiten URLs absolutas.
  */
 // [PENDIENTE: URL pública del sitio, p. ej. https://www.tudominio.com]
-export const SITE_URL = '';
+export const SITE_URL = 'www.rodrigomarquezpicazo.com';

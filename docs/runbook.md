@@ -55,3 +55,24 @@ Solo cuando hayas revisado `PENDING.md` y confirmado con tu empleador lo que se 
 
 ## Costos esperados
 Dominio (Hostinger) + centavos al mes en S3/CloudFront con este tráfico. La alarma `budget_email` avisa al 80 % de `budget_limit_usd`.
+
+## 6. Costos por proyecto (tags)
+Todos los recursos llevan los tags `App=portfolio`, `Env=prod` y `ManagedBy=terraform` (`default_tags` en `versions.tf`).
+Son claves propias: `Project`, `Environment` y `Name` ya los usan otros proyectos de la cuenta y no se tocan.
+Cost Explorer ya está habilitado en la cuenta; Terraform no lo gestiona.
+
+**Fase 1: etiquetar.** `terraform apply` con `activate_cost_tags = false` (el valor por defecto). Hasta la fase 2 el presupuesto
+`portfolio-monthly` sigue midiendo toda la cuenta.
+
+**Fase 2: activar (≥ 24 h después).** AWS solo deja activar el tag cuando la clave ya aparece en facturación.
+1. Comprueba que ya aparece: `aws ce list-cost-allocation-tags --region us-east-1 --tag-keys App`.
+2. `activate_cost_tags = true` en `terraform.tfvars` y `terraform apply`. Activa el tag `App`, filtra `portfolio-monthly` por
+   `App=portfolio` y crea el monitor de anomalías (resumen diario por correo).
+
+**Ver el gasto del proyecto.** Cost Explorer → Filters → Tag → `App` = `portfolio`, agrupado por Service. Por CLI:
+```bash
+aws ce get-cost-and-usage --region us-east-1 --granularity MONTHLY --metrics UnblendedCost \
+  --time-period Start=$(date -v1d +%F),End=$(date +%F) \
+  --filter '{"Tags":{"Key":"App","Values":["portfolio"]}}' --group-by Type=DIMENSION,Key=SERVICE
+```
+El gasto etiquetado aparece solo desde que el tag está activo (no es retroactivo).

@@ -7,6 +7,15 @@ locals {
   origin_id           = "s3-site"
   deploy_role_enabled = var.github_repo != ""
 
+  # Tags de todos los recursos (vía default_tags de los providers). Claves propias de este proyecto,
+  # distintas de las que ya usa el resto de la cuenta (Project, Environment, Name), para poder filtrar
+  # el gasto por App en Cost Explorer sin mezclarlo con otros proyectos.
+  common_tags = {
+    App       = var.project
+    Env       = var.environment
+    ManagedBy = "terraform"
+  }
+
   # CSP estricta: todo el sitio es autoalojado. 'unsafe-inline' en estilos porque Angular inyecta
   # los estilos de los componentes en <style>. El video de demo (cuando exista) viene de YouTube.
   csp = join("; ", [
