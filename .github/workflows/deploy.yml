@@ -1,3 +1,4 @@
+# Despliega web/ a S3 + CloudFront por OIDC. Ejecutable también a mano (workflow_dispatch).
 name: Deploy
 
 on:
