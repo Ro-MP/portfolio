@@ -41,7 +41,7 @@ export const es: SiteContent = {
       kind: 'image',
       ratio: '4 / 5',
       alt: 'Retrato de Rodrigo Márquez',
-      pending: 'Retrato profesional, vertical 4:5, tratamiento cálido',
+      src: '/media/hero-1.webp',
     },
   },
   metrics: {
