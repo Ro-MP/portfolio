@@ -15,6 +15,14 @@ locals {
   github_oidc_arn = local.deploy_role_enabled ? (
     var.create_github_oidc_provider ? aws_iam_openid_connect_provider.github[0].arn : data.aws_iam_openid_connect_provider.github[0].arn
   ) : ""
+
+  # GitHub emite el sub con IDs inmutables ("repo:Ro-MP@<owner_id>/portfolio@<repo_id>:...") en repos nuevos
+  # y con nombres ("repo:owner/repo:...") en los antiguos. Se usa el formato de los IDs si se dan ambos.
+  github_owner_name = split("/", var.github_repo)[0]
+  github_repo_name  = length(split("/", var.github_repo)) > 1 ? split("/", var.github_repo)[1] : ""
+  github_sub_prefix = var.github_owner_id != "" && var.github_repo_id != "" ? (
+    "repo:${local.github_owner_name}@${var.github_owner_id}/${local.github_repo_name}@${var.github_repo_id}"
+  ) : "repo:${var.github_repo}"
 }
 
 data "aws_iam_policy_document" "deploy_trust" {
@@ -38,7 +46,7 @@ data "aws_iam_policy_document" "deploy_trust" {
     condition {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:${var.github_repo}:ref:refs/heads/main"]
+      values   = ["${local.github_sub_prefix}:ref:refs/heads/main"]
     }
   }
 }

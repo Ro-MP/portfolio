@@ -42,10 +42,34 @@ variable "github_repo" {
   default     = ""
 }
 
+variable "github_owner_id" {
+  description = "ID numérico del dueño del repo (api.github.com/repos/<owner>/<repo> → owner.id). Con github_repo_id, el rol exige el sub con IDs que GitHub emite en repos nuevos."
+  type        = string
+  default     = ""
+}
+
+variable "github_repo_id" {
+  description = "ID numérico del repo (api.github.com/repos/<owner>/<repo> → id). Vacío = el sub se compara por nombre (formato antiguo)."
+  type        = string
+  default     = ""
+}
+
 variable "create_github_oidc_provider" {
   description = "false si la cuenta ya tiene el proveedor OIDC de GitHub (solo puede haber uno por cuenta)."
   type        = bool
   default     = true
+}
+
+variable "environment" {
+  description = "Valor del tag Env en todos los recursos (prod, staging...)."
+  type        = string
+  default     = "prod"
+}
+
+variable "activate_cost_tags" {
+  description = "Fase 2 de costos: activa el tag App como cost allocation tag, filtra el presupuesto por ese tag y crea el monitor de anomalías. Pon true ~24 h después del primer apply con los tags (AWS exige que la clave ya aparezca en facturación)."
+  type        = bool
+  default     = false
 }
 
 variable "budget_limit_usd" {
