@@ -30,13 +30,13 @@ export const es: SiteContent = {
     cvPending: 'PDF del CV en español',
   },
   hero: {
-    eyebrow: 'Software Engineer · Pachuca, México',
+    eyebrow: 'Software Engineer · México',
     headline:
-      'Ingeniero de software que construye las integraciones, pipelines y pronósticos que mantienen la operación en marcha.',
+      'Ingeniero de software especializado en transformar operaciones mediante integraciones empresariales, pipelines de alto rendimiento e IA predictiva.',
     subtitle:
       'Trabajo con integraciones ERP, pipelines de datos distribuidos y forecasting aplicado, y me hago cargo de lo que construyo, desde el problema del cliente hasta producción.',
     ctaCases: 'Ver casos de estudio',
-    ctaContact: 'Contáctame',
+    ctaContact: 'Hablemos',
     photo: {
       kind: 'image',
       ratio: '4 / 5',
@@ -52,7 +52,7 @@ export const es: SiteContent = {
         value: 70,
         suffix: '%',
         label: 'menos tiempo de sincronización',
-        context: 'Rediseño del pipeline de sync de SAP B1',
+        context: 'Rediseño del pipeline de sync de SAP B1 con +150k productos',
       },
       {
         text: '6–8',
@@ -404,20 +404,20 @@ export const es: SiteContent = {
     paragraphs: [
       'Soy Rodrigo, ingeniero de software de Pachuca, México, con unos tres años y medio de experiencia profesional construyendo sistemas backend, apps móviles e infraestructura en la nube para operaciones de negocio.',
       'Me gusta hacerme cargo de un problema de punta a punta: entender la operación, diseñar el sistema, entregarlo y ver cómo se comporta en producción.',
-      'Uso agentes de IA como parte de mi práctica de ingeniería, escribiendo specs y planes y revisando el resultado, y mantengo la comunicación breve y explícita. [PENDIENTE: ajusta esta frase a tu forma real de trabajar]',
+      'Uso agentes de IA como parte de mi práctica de ingeniería, escribiendo specs y planes y revisando el resultado, y mantengo la comunicación breve y explícita.',
     ],
     photos: [
       {
         kind: 'image',
         ratio: '4 / 3',
         alt: 'Rodrigo trabajando en su escritorio',
-        pending: 'Foto trabajando, tratamiento cálido coherente con el retrato',
+        src: '/media/wo-context-1.webp',
       },
       {
         kind: 'image',
         ratio: '4 / 3',
         alt: 'Rodrigo en un contexto de operación',
-        pending: 'Foto en contexto de operación (almacén, dispositivos o pantalla), sin datos reales visibles',
+        src: '/media/op-context-1.webp',
       },
     ],
     educationTitle: 'Formación',
@@ -428,32 +428,31 @@ export const es: SiteContent = {
     certificationsTitle: 'Certificaciones',
     certifications: [
       'MIT xPRO: Diseño y desarrollo de productos y servicios de IA (2025)',
-      'IBM: RAG y Agentic AI (en curso) [PENDIENTE: confirmar si sigue en curso]',
     ],
   },
   stack: {
     eyebrow: 'Stack',
-    title: 'Herramientas que puedo defender en una entrevista',
+    title: 'Herramientas que uso',
     intro: 'Una referencia rápida, agrupada por área.',
     groups: [
-      { group: 'Backend', items: ['[PENDIENTE: lenguajes y frameworks de backend que puedas defender]'] },
-      { group: 'Nube / DevOps', items: ['AWS', '[PENDIENTE: servicios de AWS, CI/CD y herramientas de infraestructura que uses]'] },
-      { group: 'Frontend', items: ['[PENDIENTE: frameworks de frontend que puedas defender]'] },
-      { group: 'Móvil', items: ['Android (nativo)'] },
-      { group: 'Datos / IA', items: ['Pronóstico de series de tiempo', '[PENDIENTE: librerías y herramientas de datos e IA]'] },
-      { group: 'SAP', items: ['SAP Business One', 'SAP Service Layer'] },
+      { group: 'Backend', items: ['Python', 'FastAPI', 'PostgreSQL', 'Celery', 'Redis'] },
+      { group: 'Nube / DevOps', items: ['Docker', 'AWS', 'Github Actions', 'Terraform'] },
+      { group: 'Datos / IA', items: ['Prophet'] },
+      { group: 'SAP', items: ['SAP Business One', 'Service Layer', 'BPA', 'Extensiones WebClient'] },
+      { group: 'Frontend', items: ['TypeScript', 'Angular'] },
+      { group: 'Móvil', items: ['Android (Kotlin)'] },
     ],
   },
   contact: {
     eyebrow: 'Contacto',
-    title: 'Contáctame',
+    title: 'Hablemos',
     text: 'Si quieres hablar de integraciones con ERP, pipelines de datos o forecasting, escríbeme.',
     emailLabel: 'Escríbeme por correo',
     email: 'picazodeveloper@gmail.com',
     linkedin: { label: 'LinkedIn', href: 'https://www.linkedin.com/in/rodrigomarquezp' },
-    github: { label: 'GitHub', pending: 'URL de tu perfil de GitHub' },
+    github: { label: 'GitHub', href: 'https://github.com/Ro-MP' , pending: ''},
     cv: { label: 'Descargar CV', pending: 'PDF del CV en español' },
-    expectation: '[PENDIENTE: confirmar tiempo de respuesta, p. ej. "Respondo en menos de 48 horas"]',
+    expectation: 'Respondo en menos de 48 horas',
     location: 'Pachuca, Hidalgo, México',
   },
   footer: {

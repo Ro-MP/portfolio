@@ -29,13 +29,16 @@ import { RichText } from '../../shared/rich-text';
               {{ c().github.label }} <app-pending [note]="c().github.pending" />
             }
           </li>
-          <li>
-            @if (c().cv.href; as href) {
-              <a [href]="href" download>{{ c().cv.label }}</a>
-            } @else {
-              {{ c().cv.label }} <app-pending [note]="c().cv.pending" />
-            }
-          </li>
+          <!--
+            CV oculto por ahora: aún no se sube el CV a la plataforma.
+            <li>
+              @if (c().cv.href; as href) {
+                <a [href]="href" download>{{ c().cv.label }}</a>
+              } @else {
+                {{ c().cv.label }} <app-pending [note]="c().cv.pending" />
+              }
+            </li>
+          -->
         </ul>
         <p class="meta muted"><app-t [v]="c().expectation" /> · {{ c().location }}</p>
       </div>
