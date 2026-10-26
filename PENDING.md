@@ -6,7 +6,7 @@
 
 ## Medios: fotos, videos y diagramas (14)
 
-- [ ] `hero.photo` — Retrato profesional, vertical 4:5, tratamiento cálido
+- [x] `hero.photo` — Retrato profesional, vertical 4:5, tratamiento cálido
 - [ ] `cases.demand-forecasting.cover` — Loop mudo de 10–15 s del frontend (histórico + pronóstico) con datos sintéticos, y su imagen de portada
 - [ ] `cases.demand-forecasting.architecture.media` — Diagrama C4 (contexto y contenedores) rediseñado en SVG con la paleta del sitio
 - [ ] `cases.demand-forecasting.demo.media` — Demo de ~2 min (YouTube no listado o Vimeo) o capturas con datos sintéticos
@@ -29,7 +29,7 @@
 
 ## Textos y datos del proyecto (46)
 
-- [ ] `cases.demand-forecasting.context[0]` — confirmar con tu empleador cómo describir la industria
+- [ ] `cases.demand-forecasting.context[0]` —  describir la industria
 - [ ] `cases.demand-forecasting.role[1]` — detalla tu rol concreto: qué partes escribiste tú y con quién colaboraste
 - [ ] `cases.demand-forecasting.decisions[0].chosen` — cómo aíslas los datos de cada cliente y cómo funciona el registro de la conexión
 - [ ] `cases.demand-forecasting.decisions[0].discarded` — alternativas que evaluaste

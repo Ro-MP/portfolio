@@ -16,13 +16,16 @@ import { LangSwitcher } from '../shared/lang-switcher';
           <a [routerLink]="['/', i18n.lang()]" fragment="cases" (click)="close()">{{ t().nav.cases }}</a>
           <a [routerLink]="['/', i18n.lang()]" fragment="about" (click)="close()">{{ t().nav.about }}</a>
           <a [routerLink]="['/', i18n.lang()]" fragment="contact" (click)="close()">{{ t().nav.contact }}</a>
-          @if (t().nav.cvHref; as href) {
-            <a class="btn btn--ghost btn--sm" [href]="href" download>{{ t().nav.cv }}</a>
-          } @else {
-            <span class="btn btn--ghost btn--sm cv-pending" [attr.title]="t().nav.cvPending"
-              >{{ t().nav.cv }} <span class="mini-tag">PENDIENTE</span></span
-            >
-          }
+          <!--
+            CV oculto por ahora: aún no se sube el CV a la plataforma.
+            @if (t().nav.cvHref; as href) {
+              <a class="btn btn--ghost btn--sm" [href]="href" download>{{ t().nav.cv }}</a>
+            } @else {
+              <span class="btn btn--ghost btn--sm cv-pending" [attr.title]="t().nav.cvPending"
+                >{{ t().nav.cv }} <span class="mini-tag">PENDIENTE</span></span
+              >
+            }
+          -->
         </nav>
 
         <div class="actions">
