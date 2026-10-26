@@ -448,7 +448,7 @@ export const en: SiteContent = {
     emailLabel: 'Email me',
     email: 'picazodeveloper@gmail.com',
     linkedin: { label: 'LinkedIn', href: 'https://www.linkedin.com/in/rodrigomarquezp' },
-    github: { label: 'GitHub', href: 'https://github.com/Ro-MP'},
+    github: { label: 'GitHub', href: 'https://github.com/Ro-MP', pending: 'Github' },
     cv: { label: 'Download CV', pending: 'PDF del CV en inglés' },
     expectation: 'I reply within 48 hours',
     location: 'Pachuca, Hidalgo, México',

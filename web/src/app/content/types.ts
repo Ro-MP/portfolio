@@ -168,7 +168,7 @@ export interface SiteContent {
     readonly emailLabel: string;
     readonly email: string;
     readonly linkedin: { readonly label: string; readonly href: string };
-    readonly github: { readonly label: string; readonly href?: string; readonly pending?: string };
+    readonly github: { readonly label: string; readonly href?: string; readonly pending: string };
     readonly cv: { readonly label: string; readonly href?: string; readonly pending: string };
     readonly expectation: string;
     readonly location: string;
