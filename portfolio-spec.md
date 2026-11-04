@@ -83,6 +83,7 @@ Variantes de tagline a explorar (el agente propone 3-5 en inglés, yo elijo):
 - **WMS (Android):** ~200 usuarios/día; 2,000+ operaciones diarias de picking/packing y traspasos; mejora de ~30% en recepción de mercancía; integración con escáneres y impresoras Zebra; escaneo por lotes mediante QR.
 - **TMS (Android):** GPS de choferes, evidencia fotográfica, firma del cliente, modo offline; ~10 usuarios activos; pausado a la espera de requisitos del portal web.
 - **Automatización de timbrado de facturas (CFDI)** y carga masiva de órdenes de compra, con manejo de errores y estados.
+- **Compromisos de contacto:** respondo en menos de 48 horas (no es una métrica de operación; es un compromiso personal en la sección de contacto).
 
 ### 3.5 Reglas de veracidad y confidencialidad (obligatorias)
 **Veracidad — NO afirmar:**

@@ -23,6 +23,7 @@ const FORBIDDEN = [
 // Números permitidos: solo los de la sección 3.4 del spec (más años y fechas).
 const ALLOWED_NUMBERS = new Set([
   '70', '150,000', '150', '30', '2,000', '32', '10', '500', '200', '6', '8', '1', '2',
+  '48', // compromiso de tiempo de respuesta en contacto (spec 3.4, "Compromisos de contacto")
   '2015', '2020', '2025', '2026',
 ]);
 const SKIP_KEYS = new Set(['ratio', 'href', 'email', 'src', 'poster', 'lang', 'ogLocale', 'type', 'slug', 'pending', 'cvPending']);
